@@ -1,22 +1,22 @@
-import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import Home from '../pages/Home';
-// import GoogleAuth from '../pages/GoogleAuth';
-import AddCustomer from '../pages/AddCustomer';
-import AddOrder from '../pages/AddOrder';
-import AudienceSegment from '../pages/AudienceSegment';
-import Campaign from '../pages/Campaign';
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import Home from "../pages/Home";
+import GoogleAuth from '../pages/GoogleAuth';
+import AddCustomer from "../pages/AddCustomer";
+import AddOrder from "../pages/AddOrder";
+import AudienceSegment from "../pages/AudienceSegment";
+import Campaign from "../pages/Campaign";
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
-  return !isAuthenticated ? children : <Navigate to="/google-auth" />;
+  return isAuthenticated ? children : <Navigate to="/google-auth" />;
 };
 
 const AppRoutes = () => {
   return (
     <Routes>
-      {/* <Route path="/google-auth" element={<GoogleAuth />} /> */}
+      <Route path="/google-auth" element={<GoogleAuth />} />
       <Route
         path="/"
         element={

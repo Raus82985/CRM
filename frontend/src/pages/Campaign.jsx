@@ -56,40 +56,61 @@ const Campaign = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-6">Campaigns</h1>
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-lg mb-6">
-        <label className="block mb-2 font-bold">Segment ID</label>
-        <input
-          type="text"
-          name="segment_id"
-          value={form.segment_id}
-          onChange={handleChange}
-          className="w-full p-2 border rounded mb-4"
-          required
-        />
-        <label className="block mb-2 font-bold">Campaign Name</label>
-        <input
-          type="text"
-          name="name"
-          value={form.name}
-          onChange={handleChange}
-          className="w-full p-2 border rounded mb-4"
-          required
-        />
-        <label className="block mb-2 font-bold">Message</label>
-        <textarea
-          name="message"
-          value={form.message}
-          onChange={handleChange}
-          className="w-full p-2 border rounded mb-4"
-          required
-        />
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+    <div className="container mx-auto p-6 max-w-4xl">
+      <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">Campaigns</h1>
+      <form
+        onSubmit={handleSubmit}
+        className="bg-gradient-to-br from-white to-gray-100 p-8 rounded-xl shadow-lg mb-8 border"
+      >
+        <div className="mb-6">
+          <label className="block mb-2 text-sm font-semibold text-gray-700">Segment ID</label>
+          <input
+            type="text"
+            name="segment_id"
+            value={form.segment_id}
+            onChange={handleChange}
+            className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-blue-300"
+            placeholder="Enter segment ID"
+            required
+          />
+        </div>
+        <div className="mb-6">
+          <label className="block mb-2 text-sm font-semibold text-gray-700">Campaign Name</label>
+          <input
+            type="text"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-blue-300"
+            placeholder="Enter campaign name"
+            required
+          />
+        </div>
+        <div className="mb-6">
+          <label className="block mb-2 text-sm font-semibold text-gray-700">Message</label>
+          <textarea
+            name="message"
+            value={form.message}
+            onChange={handleChange}
+            className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-blue-300"
+            placeholder="Enter campaign message"
+            rows="4"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white font-semibold py-3 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
+        >
           Create Campaign
         </button>
       </form>
-      <CampaignList campaigns={campaigns} onSend={sendMessages} onViewStats={viewStats} stats={stats} />
+      <CampaignList
+        campaigns={campaigns}
+        onSend={sendMessages}
+        onViewStats={viewStats}
+        stats={stats}
+      />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import React from 'react';
 const CampaignList = ({ campaigns, onSend, onViewStats, stats }) => {
   return (
     <div className="bg-white shadow-md p-4 rounded-lg">
-      <h2 className="text-lg font-bold mb-4">Active Campaigns</h2>
+      <h2 className="text-center text-lg font-bold mb-4">Active Campaigns</h2>
       <ul>
         {campaigns.map((campaign) => (
           <li key={campaign._id} className="border-b py-4">
